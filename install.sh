@@ -10,3 +10,4 @@ sudo add-apt-repository \
 sudo apt-get update
 sudo apt-get install docker-ce -y 
 sudo docker run hello-world
+echo "finish docker install"
