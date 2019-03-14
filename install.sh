@@ -17,3 +17,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo apt-cache madison docker-ce
 sudo docker run hello-world
 
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+sudo systemctl restart docker
+
