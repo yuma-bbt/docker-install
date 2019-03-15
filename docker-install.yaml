@@ -1,0 +1,47 @@
+- hosts: docker-host
+  become: yes
+  tasks:
+    - name: add key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - name: add repository 
+      shell: sudo add-apt-repository  "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    - name: full update 
+      apt: update_cache=yes upgrade=full
+    - name: install docker 
+      apt: name={{ item }} update_cache=yes cache_valid_time=3600
+      with_items:
+      - htop
+      - git
+      - screen
+      - gcc 
+      - libpcap-dev
+      - make
+      - libssl-dev
+      - zlib1g-dev
+      - build-essential 
+      - libbz2-dev 
+      - libreadline-dev 
+      - libsqlite3-dev 
+      - wget 
+      - curl 
+      - llvm 
+      - libncurses5-dev 
+      - libncursesw5-dev 
+      - xz-utils 
+      - tk-dev
+      - apt-transport-https
+      - ca-certificates
+      - gnupg-agent
+      - software-properties-common
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io 
+
+    - name: gpasswd docker 
+      shell: sudo gpasswd -a $USER docker 
+
+    - name: systemctl
+      shell: sudo systemctl restart docker
+
+    - name: docker-run
+      shell: sudo docker run hello-world

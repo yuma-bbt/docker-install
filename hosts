@@ -1,0 +1,4 @@
+[docker-host]
+worker10.maas  ansible_ssh_user=ubuntu
+
+
