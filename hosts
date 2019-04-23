@@ -1,4 +1,8 @@
 [docker-host]
-worker10.maas  ansible_ssh_user=ubuntu
+yuma-pyvm-kube1 ansible_ssh_user=yuma
+yuma-pyvm-kube2 ansible_ssh_user=yuma
+yuma-pyvm-kube3 ansible_ssh_user=yuma
+yuma-pyvm-kube4 ansible_ssh_user=yuma
+yuma-pyvm-kube5 ansible_ssh_user=yuma
 
 
